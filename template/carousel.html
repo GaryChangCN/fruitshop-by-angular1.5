@@ -1,0 +1,33 @@
+<div class={{style}} ng-swipe-left="swipeLeft()" ng-swipe-right="swipeRight()">
+    <ul style="width:{{width}};transform:translate(-{{translate}}rem)">
+        <li ng-repeat="item in img">
+            <img ng-src="http://www.guoerdao.com:3000{{item.imgUrl}}">
+        </li>
+    </ul>
+</div>
+<style>
+	/*轮播组件样式开始*/
+.carousel{
+    width: 9.4rem;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 5rem;
+    border-radius: 0.2rem;
+}
+.carousel>ul{
+    height: inherit;
+    transition: transform 0.5s;
+}
+.carousel>ul>li{
+    width: 9.4rem;
+    height: inherit;
+    float: left;
+    border-radius: inherit;
+}
+.carousel>ul>li>img{
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+}
+/*轮播组件样式结束*/
+</style>

@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "微软雅黑";
+    text-decoration: none;
+    font-weight: 100;
+}
+
+::-webkit-scrollbar {
+    width: 0px
+}
+
+a:link {
+    color: #0b9058;
+}
+
+a:visited{
+    color: #0b9058;
+}
+a:hover{
+    color: #0b9058;
+}
+a:visited{
+    color: #0b9058;
+}
+/*
+红 #ec684c
+白#FCFDFD
+深#6F7772
+中 #A4A4A4
+浅 #CFCFCF
+深绿 #0b9058
+绿#0ba463
+鲜绿#7ccaa8
+超浅绿#D1E1DE*/
+
+html {
+    font-size: 40px;
+}
+
+body {
+    font-size: 0.5rem;
+    background-color: #0ba463;
+    color: #7f7772;
+}

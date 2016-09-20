@@ -1,0 +1,192 @@
+<c-header></c-header>
+<c-shopcarhover></c-shopcarhover>
+<div class="detail">
+    <img ng-src="http://www.guoerdao.com:3000{{data.imgUrl}}">
+    <div class="fruitName">
+        {{data.fruitName}}
+        <div>
+            <span>
+        		{{data.info}}
+        	</span>
+        </div>
+    </div>
+    <div class="fruitPrice">
+        <span class="oldPrice">￥{{data.normalPrice}}</span>
+        <span class="weight">{{data.weight}}</span>
+        <span class="newPrice">￥{{data.discountPrice}}</span>
+    </div>
+    <div class="goodDetail" ng-hide="!html">
+        <p><i class="iconfont">&#xe622;</i> 商品详情</p>
+        <div ng-bind-html="html"></div>
+    </div>
+    <div class="shim"></div>
+    <div class="control">
+        <div>
+            <span ng-click="de()">-</span>
+            <div>{{amount}}</div>
+            <span ng-click="in()">+</span>
+        </div>
+        <a href="javascript:void(0)" ng-click="addShopcar()">
+            加入购物车
+        </a>
+    </div>
+</div>
+<style>
+.detail {
+    width: 9.4rem;
+    margin: 0 auto;
+}
+
+.detail>img {
+    width: inherit;
+    border-radius: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.detail>.fruitName,
+.detail>.fruitPrice {
+    background-color: #fcfdfd;
+    width: 9rem;
+    padding: 0 0.2rem;
+    color: #0b9058;
+    font-size: 0.6rem;
+    font-weight: 100;
+    height: 1rem;
+    line-height: 1rem;
+    position: relative;
+}
+
+.detail>.fruitName {
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.detail>.fruitPrice {
+    border-radius: 0 0 0.2rem 0.2rem;
+}
+
+.detail>.fruitName>div {
+    position: absolute;
+    height: 2rem;
+    right: 0.1rem;
+    top: 0;
+    width: 0.5rem;
+    z-index: 45;
+    font-size: 0.3rem;
+    border-left: 1px dashed #0b9058;
+    padding-left: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail>.fruitName>div>span {
+    display: block;
+    line-height: 110%;
+}
+
+.detail>.fruitPrice>.oldPrice {
+    font-size: 0.4rem;
+    color: #cfcfcf;
+    text-decoration: line-through;
+}
+
+.detail>.fruitPrice>.weight {
+    padding-left: 1rem;
+    font-size: 0.4rem;
+}
+
+.detail>.fruitPrice>.newPrice {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.detail>.goodDetail {
+    margin-top: 0.3rem;
+    border-radius: 0.2rem;
+    background-color: #fcfdfd;
+    color: #0ba463;
+}
+
+.detail>.goodDetail>p {
+    width: 9.2rem;
+    padding: 0.1rem 0 0.2rem 0.2rem;
+    font-size: 0.6rem;
+}
+
+.detail>.goodDetail>div {
+    width: 9rem;
+    padding: 0 0.2rem;
+}
+
+.detail>.goodDetail>div>p {
+    font-weight: 100;
+    font-size: 0.4rem;
+}
+
+.detail>.goodDetail img {
+    width: 9rem;
+}
+
+.shim {
+    height: 2rem;
+}
+
+.control {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 1rem;
+    width: 10rem;
+    color: #0ba463;
+    background-color: #0b9058;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control>div {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    justify-content: flex-start;
+    padding-left: 0.3rem;
+}
+
+.control>div span {
+    display: flex;
+    background-color: #fcfdfd;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 0.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.control>div>div {
+    width: 0.8rem;
+    height: 0.5rem;
+    color: #fcfdfd;
+    background-color: transparent;
+    text-align: center;
+    font-size: 0.4rem;
+}
+
+.control>a {
+    display: flex;
+    margin-right: 0.3rem;
+    width: 2.5rem;
+    height: 0.7rem;
+    font-size: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2rem;
+    background-color: #fcfdfd;
+}
+
+.control span {
+    cursor: pointer;
+}
+</style>

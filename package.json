@@ -1,0 +1,21 @@
+{
+  "name": "guoerdao",
+  "version": "1.0.0",
+  "description": "fruit",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": " none"
+  },
+  "keywords": [
+    "fruit"
+  ],
+  "author": "tinytin'",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

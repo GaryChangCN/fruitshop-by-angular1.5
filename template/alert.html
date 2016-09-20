@@ -1,0 +1,6 @@
+<div style="position: fixed;z-index: 70;top: 0.2rem;">
+    <div ng-repeat="item in myData" ng-click="item.close()"style="position: relative;width:6rem;min-height: 1rem;color: #0b9058;;border-radius:0 0.2rem 0.2rem 0;margin-bottom: 0.3rem;padding:0.2rem 0.6rem 0.2rem 0.2rem;background-color:rgba(252,253,253,0.7);">
+        <p style="font-size: 0.4rem;">{{item.msg}}</p>
+        <span style="position: absolute;right: -0.1rem;top:-0.1rem;color:#fcfdfd;background-color: #0b9058;border-radius: 50%;width: 0.5rem;height: 0.5rem;text-align: center;line-height: 0.5rem;cursor: pointer;font-size: 0.3rem;">×</span>
+    </div>
+</div>

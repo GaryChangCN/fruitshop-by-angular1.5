@@ -1,0 +1,120 @@
+<c-header></c-header>
+<c-shopcarhover></c-shopcarhover>
+<div class="carouselC">
+    <c-carousel></c-carousel>
+</div>
+<div class="list">
+    <a ng-repeat="item in list" class="listDetail" ng-href="/#/detail?id={{item.id}}">
+        <img ng-src="http://www.guoerdao.com:3000{{item.imgUrl}}" alt="{{item.fruitName}}">
+        <div class="fruitInfo" ng-hide="!item.info">{{item.info}}</div>
+        <div class="amountBg" ng-hide="item.amount!=0"></div>
+        <span class="fruitAmount">{{item.amount==0?"售罄":""}}</span>
+        <p class="fruitName">
+            {{item.fruitName}}
+        </p>
+        <p class="fruitPrice">
+            <span class="oldPrice">￥{{item.normalPrice}}</span>
+            <span class="newProce">￥{{item.discountPrice}}</span>
+        </p>
+    </a>
+    <div class="clear"></div>
+</div>
+<style>
+.carouselC {
+    
+}
+
+.list {
+    width: 9.4rem;
+    margin: 0.5rem auto 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.listDetail {
+    display: block;
+    width: 4.5rem;
+    background-color: #fff;
+    margin-bottom: 0.4rem;
+    border-radius: 0.2rem;
+    position: relative;
+}
+
+.listDetail:nth-child(odd) {
+    float: left;
+}
+
+.listDetail:nth-child(even) {
+    float: right;
+}
+
+.listDetail>img {
+    width: inherit;
+    height: 3.3rem;
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.fruitName {
+    text-align: center;
+    width: 4.3rem;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.45rem;
+    color: #6f7772;
+    margin-bottom: 0.1rem;
+}
+
+.fruitPrice {
+    text-align: center;
+    margin-bottom: 0.1rem;
+}
+
+.fruitPrice>.oldPrice {
+    text-decoration: line-through;
+    color: #cfcfcf;
+    font-size: 0.4rem;
+}
+
+.amountBg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: #0ba463 transparent transparent #0ba463;
+    border-style: solid;
+    border-width: 0.7rem;
+    left: 0;
+    top: 0;
+}
+
+.fruitAmount {
+    width: 1.4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    position: absolute;
+    left: 0rem;
+    font-size: 0.3rem;
+    color: #fcfdfd;
+    top: 0rem;
+    transform: rotate(-45deg);
+}
+
+.fruitInfo {
+    position: absolute;
+    height: 0.5rem;
+    right: 0;
+    top: 2.8rem;
+    width: 1.5rem;
+    text-align: center;
+    background-color: #0b9058;
+    color: #fcfdfd;
+    line-height: 0.5rem;
+    font-size: 0.1rem;
+}
+
+
+</style>

@@ -1,0 +1,49 @@
+<div class="placeList">
+        <div>
+            <a ng-repeat="item in placeList" ng-href="/#/main?name={{item.name}}" ng-click="saveLocalStorage(item.name)">
+                <p>{{item.name}}</p>
+                <p>{{item.selfaddress}}</p>
+            </a>
+        </div>    
+</div>
+<style>
+.placeList {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.placeList>div {
+    height: 45vh;
+    width: 94vw;
+    overflow-x: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.placeList>div>a{
+    width: inherit;
+    height: 23vh;
+	color: #0ba463;
+    background-color: #fcfdfd;
+    border-radius: 2vw;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.placeList>div>a>p:last-child{
+    font-size: 0.4rem;
+    margin-top: 0.2rem;
+}
+.placeList>div>a:hover{
+	box-shadow: none;
+}
+.placeList>div>a:visited{
+	text-decoration: none;
+	color: #0ba463;
+}
+</style>
