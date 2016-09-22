@@ -1,15 +1,17 @@
-function resize() {
-    var Width = document.documentElement.clientWidth ? document.documentElement.clientWidth : window.innerWidth;
-    if (Width <= 768) {
-        var rem = Width / 10;
-        document.querySelector("html").style.fontSize = rem + "px";
-    } else {
-        document.querySelector("html").style.fontSize = 41.4 + "px";
+angular.element(document).ready(function() {
+    function resize() {
+        var Width = document.documentElement.clientWidth ? document.documentElement.clientWidth : window.innerWidth;
+        if (Width <= 768) {
+            var rem = Width / 10;
+            document.querySelector("html").style.fontSize = rem + "px";
+        } else {
+            document.querySelector("html").style.fontSize = 41.4 + "px";
+        }
     }
-}
-resize();
-window.addEventListener("resize", function() {
     resize();
+    window.addEventListener("resize", function() {
+        resize();
+    });
 });
 var app = angular.module('guoerdao', ['ngRoute', 'ngTouch', 'ngSanitize']);
 //component
@@ -19,10 +21,10 @@ app.component('cHeader', {
 }).component('cCarousel', {
     templateUrl: 'template/carousel.html',
     controller: 'carouselController'
-}).component('cShopcarhover',{
-    templateUrl:'template/shopcarHover.html',
-    controller:'shopcarController'
-})
+}).component('cShopcarhover', {
+    templateUrl: 'template/shopcarHover.html',
+    controller: 'shopcarController'
+});
 //directive
 
 app.directive('myAlert', function() {
@@ -36,7 +38,7 @@ app.directive('myAlert', function() {
     };
 });
 //service
-app.factory('alertService', ['$rootScope','$timeout', function($rootScope, $timeout){
+app.factory('alertService', ['$rootScope', '$timeout', function($rootScope, $timeout) {
     var alertService = {};
     $rootScope.alerts = [];
     alertService.closeAlert = function(alert) {
@@ -59,33 +61,33 @@ app.factory('alertService', ['$rootScope','$timeout', function($rootScope, $time
     };
     return alertService;
 }]);
-app.factory('shopcarService', ['$rootScope', function($rootScope){
-    var shopcarService={};
-    $rootScope.shopcar={};
-    $rootScope.count=0;
-    shopcarService.add=function(id,name,amount){
-        if(!$rootScope.shopcar[id]){
-            $rootScope.shopcar[id]={
-                name:name,
-                amount:0
+app.factory('shopcarService', ['$rootScope', function($rootScope) {
+    var shopcarService = {};
+    $rootScope.shopcar = {};
+    $rootScope.count = 0;
+    shopcarService.add = function(id, name, amount) {
+        if (!$rootScope.shopcar[id]) {
+            $rootScope.shopcar[id] = {
+                name: name,
+                amount: 0
             };
             $rootScope.count++;
         }
-        $rootScope.shopcar[id].amount+=amount;
+        $rootScope.shopcar[id].amount += amount;
     };
-    shopcarService.update=function(id,amount){
-        $rootScope.shopcar[id].amount+=amount;
+    shopcarService.update = function(id, amount) {
+        $rootScope.shopcar[id].amount += amount;
     }
-    shopcarService.delete=function(id){
+    shopcarService.delete = function(id) {
         $rootScope.count--;
         delete $rootScope.shopcar[id];
     }
-    shopcarService.clear=function(){
-        $rootScope.shopcar={};
-        $rootScope.count=0;
+    shopcarService.clear = function() {
+        $rootScope.shopcar = {};
+        $rootScope.count = 0;
     }
     return shopcarService;
-}])
+}]);
 
 app.config(['$routeProvider', function($routerProvider) {
     $routerProvider.when('', {
@@ -99,9 +101,21 @@ app.config(['$routeProvider', function($routerProvider) {
     }).when('/detail', {
         templateUrl: 'page/detail.html',
         controller: 'detailController'
-    }).when('/shopcar',{
-        templateUrl:'page/shopcar.html',
-        controller:'shopcarController'
+    }).when('/shopcar', {
+        templateUrl: 'page/shopcar.html',
+        controller: 'shopcarController'
+    }).when('/person', {
+        templateUrl: 'page/person.html',
+        controller: 'personController'
+    }).when('/login', {
+        templateUrl: 'page/login.html',
+        controller: 'loginController'
+    }).when('/order', {
+        templateUrl: 'page/order.html',
+        controller: 'orderController'
+    }).when('/address', {
+        templateUrl: 'page/address.html',
+        controller: 'addressController'
     }).otherwise({
         redirectTo: '/main'
     })

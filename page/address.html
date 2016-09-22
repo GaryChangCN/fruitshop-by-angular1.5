@@ -1,0 +1,136 @@
+<c-header></c-header>
+<div class="address"> 
+	<div class="addressList" ng-repeat="item in data">
+		<div>
+			<div>用户名：{{item.name}}</div>
+			<span ng-show="item.default==1">默认地址√</span>
+			<a ng-hide="item.default==1" href="javascript:viod(0)" ng-click="setDefault(item._id)">设为默认</a>
+		</div>
+		<div>
+			<div>地址：{{item.address}}</div>
+			<a href="javascipt:void(0)" ng-click="deleteAddress(item._id)">删除</a>
+		</div>
+	</div>
+    <button ng-click="add()">新增收货地址</button>
+    <div ng-show="showAdd" class="showAdd">
+        <span ng-click="closeAdd()">×</span>
+        <form ng-submit="submitAdd()" name="addressForm">
+            <div>
+                <span>地址</span>
+                <input type="text" ng-model="address" required>
+            </div>
+            <div>
+                <span>姓名</span>
+                <input type="text" ng-model="name" required>
+            </div>
+            <div>
+                <span>手机号</span>
+                <input type="number" ng-model="phone" required>
+            </div>
+            <div>
+                <input class="addressSubmit" type="submit" ng-disabled="addressForm.$invaild">
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+.address {
+    width: 9.4rem;
+    margin: 0 auto;
+    position: relative;
+}
+.address>.addressList{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 9.4rem;
+	height: 2rem;
+	background-color: #fcfdfd;
+	border-radius: 0.2rem;
+	margin-bottom: 0.2rem;
+}
+.address>.addressList>div{
+	width: 9rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 1rem;
+	font-size: 0.4rem;
+}
+.address>button{
+	width: 5rem;
+	display: block;
+	margin:0.2rem auto;
+	height: 0.7rem;
+	background-color: #fcfdfd;
+	color: #0ba463;
+	border-radius: 0.2rem;
+	font-size: 0.4rem;
+}
+.address>.showAdd{
+    position: absolute;
+    width: 8rem;
+    left: 0.7rem;
+    background-color: #fcfdfd;
+    border-radius: 0.2rem;
+}
+
+.address>.showAdd>span {
+    position: absolute;
+    right: -0.2rem;
+    top: -0.2rem;
+    background-color: #fcfdfd;
+    border-radius: 50%;
+    border: 1px solid #0ba463;
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    font-size: 0.4rem;
+    color: #0ba463;
+    text-align: center;
+    line-height: 0.6rem;
+}
+
+.address>.showAdd>form {
+    height: 4rem;
+    width: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.address>.showAdd>form>div {
+    display: flex;
+    width: 8rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px dashed #0ba463;
+    height: 1rem;
+}
+
+.address>.showAdd>form>div>span {
+    width: 3rem;
+    font-size: 0.5em;
+    color: #0ba463;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address>.showAdd>form>div>input {
+    width: 6rem;
+    height: 0.8rem;
+    font-size: 0.5rem;
+    background-color: transparent;
+}
+
+.address>.showAdd>form>div>input:last-child {
+    font-size: 0.5rem;
+    color: #0ba463;
+}
+
+.addressSubmit {
+    color: #6F7772;
+    text-decoration: line-through;
+}
+</style>

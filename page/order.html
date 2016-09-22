@@ -1,0 +1,120 @@
+<c-header></c-header>
+<div class="order">
+    <div ng-repeat="item in data" ng-click="show(item)">
+        <div class="orderList">
+            <div class="top">
+                <span>订单编号{{item.orderid}}</span>
+                <span ng-show="item.ispay==0">未支付</span>
+                <span ng-hide="item.ispay==0">已支付</span>
+                <span ng-show="item.complete==0">订单完成</span>
+                <span ng-hide="item.complete==0">订单关闭</span>
+            </div>
+            <div class="bottom">
+                <img ng-src="{{item.cartFruits[0].imgUrl}}">
+                <div>
+                    <span>{{item.totalprice}}元</span>
+                    <span>{{item.date}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="orderDetail" ng-show="item.show">
+            <span>取货地址:{{item.school.name+item.school.selfaddress}}</span>
+            <div ng-repeat="item in item.cartFruits">
+                <span>{{item.fruitName}}</span>
+                <span>￥{{item.discountPrice?item.discountPrice:item.normalPrice}}</span>
+                <span>{{item.buyAmount}}件</span>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.order {
+    width: 9.4rem;
+    margin: 0 auto 1.5rem auto;
+}
+
+.order>div {
+    margin-bottom: 0.2rem;
+}
+
+.orderList {
+    width: 9rem;
+    padding: 0.2rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfdfd;
+    color: #0ba463;
+    border-radius: 0.2rem;
+}
+
+.orderDetail {
+    width: 9rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderDetail>span {
+	margin:0.1rem 0;
+    display: block;
+    width: 9rem;
+    font-size: 0.2rem;
+    color: #fcfdfd;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.orderDetail>div{
+	width: 9rem;
+	display: flex;
+	font-size: 0.3rem;
+	color:#fcfdfd;
+	justify-content: space-between;
+}
+.orderDetail>div>span{
+	width: 3rem;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.orderList>.top {
+    width: 9rem;
+    height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.3rem;
+    align-items: center;
+}
+
+.orderList>.bottom {
+    width: 9rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderList>.bottom>img {
+    width: 3rem;
+}
+
+.orderList>.bottom>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 4rem;
+}
+
+.orderList>.bottom>div>span:first-child {
+    font-size: 0.5rem;
+    padding-top: 0.4rem;
+}
+
+.orderList>.bottom>div>span:last-child {
+    font-size: 0.3rem;
+    align-self: flex-end;
+}
+</style>

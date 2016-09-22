@@ -1,0 +1,86 @@
+<c-header></c-header>
+<div class="login">
+    <form name="loginForm" ng-submit="submit()">
+        <div>
+            <span>
+    			<i class="iconfont">&#xe611;</i>
+    		</span>
+            <input type="text" ng-model="name" placeholder="账号" required>
+        </div>
+        <div>
+            <span>
+    			<i class="iconfont">&#xe692;</i>
+    		</span>
+            <input ng-model="password" type="password" placeholder="密码" required>
+        </div>
+        <input type="submit" ng-disabled="loginForm.$invalid">
+    </form>
+    <div class="info">
+        <a href="javascript:void(0)">注册</a>
+        <a href="">忘记密码</a>
+    </div>
+</div>
+<style>
+.login>form {
+    display: flex;
+    width: 9.4rem;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    height: 3rem;
+    background-color: #fcfdfd;
+    border-radius: 0.2rem;
+}
+
+.login>form>div {
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login>form>div>span {
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px dashed #0ba463;
+}
+
+.login>form>div>span>i {
+    color: #0ba463;
+}
+
+.login>form>div>input {
+    height: 1rem;
+    width: 7.9rem;
+    background-color: transparent;
+    font-size: 0.3rem;
+    border-bottom: 1px dashed #0ba463;
+    padding-left: 0.5rem;
+}
+
+.login>form>input {
+    width: 9.4rem;
+    height: 1rem;
+    font-size: 0.4rem;
+    color: #0ba463;
+    background-color: transparent;
+}
+
+.login>form>input:disabled {
+    text-decoration: line-through;
+    color: #6F7772;
+}
+.login>.info{
+	width: 9.4rem;
+	margin:0.2rem auto;
+	display: flex;
+	justify-content: space-between;
+}
+.login>.info>a{
+	font-size: 0.2rem;
+	color: #fcfdfd;
+}
+</style>

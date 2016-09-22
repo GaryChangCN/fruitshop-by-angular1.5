@@ -29,6 +29,9 @@ app.controller('detailController', ['$http', '$scope', '$routeParams', '$sanitiz
     $http.post('http://123.206.203.130:3000/detail', { id: id }).then(function(res) {
         $scope.data = res.data;
         $scope.html = $scope.data.description.replace(/\/images/g, 'http://www.guoerdao.com:3000/images').replace(/<(h[1-4]|b)>/g, '<p>');
+    }).catch(function(err) {
+        alertService.add('出现错误');
+        alertService.add(err.data.err);
     });
 
 }])
